@@ -1,11 +1,19 @@
 <script>
 if (!!location.search) {
+  let data = (new URLSearchParams(location.search)).get("data");
   try {
-    alert(decodeURIComponent((new URLSearchParams(location.search)).get("data")));
+    alert(decodeURIComponent(data));
   } catch(e) {
-    alert((new URLSearchParams(location.search)).get("data"));
+    alert(data);
+  }
+} else if (!!location.hash) {
+  let data = location.hash.slice(1);
+  try {
+    alert(decodeURIComponent(data));
+  } catch(e) {
+    alert(data);
   }
 } else {
-  alert('hello')
+  alert('hello');
 }
 </script>
